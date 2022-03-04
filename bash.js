@@ -6,6 +6,8 @@ const date = require('./date');
 const echo = require('./echo');
 const head = require('./head');
 const tail = require('./tail');
+const sort = require('./sort');
+const wc = require('./wc');
 
 process.stdout.write("prompt> ")
 
@@ -47,6 +49,16 @@ process.stdin.on('data', (data) => {
     if (cmd === 'tail') {
         let result = input.split(' ')[1];
         tail(result, done);
+    }
+    
+    if (cmd === 'sort') {
+        let file = input.split(' ')[1];
+        sort(file, done);
+    }
+    
+    if (cmd === 'wc') {
+        let file = input.split(' ')[1];
+        wc(file, done);
     }
 });
 
