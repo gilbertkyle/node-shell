@@ -1,11 +1,11 @@
 const fs = require('fs');
 
-const cat = (filePath) => {
+const cat = (filePath, done) => {
     fs.readFile(filePath, (error, data) => {
         if (error) {
             throw error;
         } else {
-            process.stdout.write(data);
+            done(data);
         }
     });
 }

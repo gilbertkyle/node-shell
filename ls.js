@@ -1,11 +1,11 @@
 const fs = require('fs');
 
-const ls = () => {
+const ls = (done) => {
     fs.readdir("./", "utf8", (error, files) => {
         if (error){
-          throw error  
+          throw error
         } else {
-            process.stdout.write(files.join('\n'));
+            done(files.join('\n'));
         }
     })
 }
